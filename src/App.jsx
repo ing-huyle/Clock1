@@ -9,7 +9,7 @@ const initialState = {
   timerLabel: 'Session'
 }
 
-const formatNumber = (number) => number > -1 && number < 10 ? '0' + number : number.toString();
+const formatNumber = (number) => number < 10 ? '0' + number : number.toString();
 
 const App = () => {
   const [breakLength, setBreakLength] = useState(initialState.breakLength);
@@ -56,7 +56,6 @@ const App = () => {
     });
     setIsRunning(false)
     clearInterval(intervalRef.current);
-    console.log(audioRef);
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
   }
